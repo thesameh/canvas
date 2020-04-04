@@ -35,7 +35,6 @@ class Walker {
      if (this.pos.x <= (0 + this.r)) {
        this.pos.x = 0 + this.r ;
        this.vel.x *= -1;
-       this.vel.y += 0.1;
      }
   }
 

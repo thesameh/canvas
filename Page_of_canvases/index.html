@@ -12,189 +12,39 @@
       <!---*****  canvas 1  *******-->
       <div id="canvas_block_1" class="canvas_block">
         <h1>Canvas 1</h1>
-        <!-- script -->
-        <script>
-          let sketch = function (p) {
-            let walkers = [];
-            let i;
-            p.setup = function () {
-              p.createCanvas(300, 300);
-              // p.background(0);
-              walker = new Walker(
-                p.width / 2,
-                p.height / 2,
-                0.3,
-                6,
-                "#529A86",
-                42
-              );
-              i = 0;
-            };
-            p.draw = function () {
-              p.background("#ec6778");
-              walker.walk();
-              walker.show();
-
-              walkers.forEach((element) => {
-                element.walk();
-                element.show();
-              });
-            };
-            //   creat more walkers
-            //   setInterval(() => {
-            //     walkers[i] = new Walker(200, 200, p.random(0.2,0.5), p.random(2,10) , "random" , p.random(20,70) );
-            //     i++;
-            //   }, 100);
-
-            let all_points = [];
-
-            class Walker {
-              constructor(x, y, a, v, c, r) {
-                this.pos = p.createVector(x, y);
-                this.vel = p5.Vector.random2D().mult(p.random(5));
-                this.vl = v;
-                this.al = a;
-                this.ra = r;
-                this.cl =
-                  c == "random"
-                    ? `rgb(${p.round(p.random(0, 255))} , ${p.round(
-                        p.random(0, 255)
-                      )} , ${p.round(p.random(0, 255))})`
-                    : c;
-              }
-              walk() {
-                let mouse = p.createVector(p.mouseX, p.mouseY);
-                this.acc = p5.Vector.sub(mouse, this.pos).limit(this.al);
-                this.vel.add(this.acc).limit(this.vl);
-                this.pos.add(this.vel);
-              }
-              show() {
-                p.stroke(255)
-                  .strokeWeight(2)
-                  .fill(this.cl)
-                  .ellipse(this.pos.x, this.pos.y, this.ra);
-              }
-            }
-          };
-          new p5(sketch, window.document.getElementById("canvas_block_1"));
-        </script>
-        <!-- style -->
+        <p>Simple force, gravity and acciliration concept</p>
       </div>
-      <!---***** end canvas 1  *******-->
+
+      
       <!---*****  canvas 2  *******-->
       <div id="canvas_block_2" class="canvas_block">
         <h1>Canvas 2</h1>
-        <p>orbit around the mouse with mass</p>
-        <!-- script -->
-        <script>
-          let can3 = function (p) {
-            let walkers = [];
-            let i;
-            p.setup = function () {
-              p.createCanvas(300, 300);
-              // walker = new Walker(10,10,0.3,6,"#529A86",3);
-              i = 1;
-            };
-
-            p.draw = function () {
-              p.background("#ec6778");
-              // walker.walk();
-              // walker.show();
-
-              walkers.forEach((element) => {
-                element.walk();
-                element.show();
-              });
-            };
-
-            // creat more walkers
-            let add_walkers = setInterval(() => {
-              walkers[i] = new Walker(10, 20, 0.5, 5, "random", i);
-              i++;
-              if (i == 10) {
-                clearInterval(add_walkers);
-              }
-            }, 500);
-
-            let all_points = [];
-
-            class Walker {
-              constructor(x, y, a, v, c, m) {
-                this.pos = p.createVector(x, y);
-                this.vel = p.createVector(10, 10);
-                this.vl = v;
-                this.al = a;
-                this.mass = m;
-                this.ra = p.sqrt(m) * 20;
-                this.cl =
-                  c == "random"
-                    ? `rgb(${p.round(p.random(0, 255))} , ${p.round(
-                        p.random(0, 255)
-                      )} , ${p.round(p.random(0, 255))})`
-                    : c;
-              }
-              walk() {
-                let mouse = p.createVector(p.mouseX, p.mouseY);
-                this.acc = p5.Vector.sub(mouse, this.pos).limit(this.al);
-                this.acc.div(this.mass);
-                this.vel.add(this.acc).limit(this.vl);
-                this.pos.add(this.vel);
-              }
-              show() {
-                p.stroke(255)
-                  .strokeWeight(2)
-                  .fill(this.cl)
-                  .ellipse(this.pos.x, this.pos.y, this.ra);
-              }
-            }
-          };
-          new p5(can3, window.document.getElementById("canvas_block_2"));
-        </script>
-        <!-- style -->
+        <p>gravity to point/mouse(click), mass applied</p>
       </div>
-
-        <!---***** end canvas 2  *******-->
 
         <!---*****  canvas 3  *******-->
         <div id="canvas_block_3" class="canvas_block">
           <h1>Canvas 3</h1>
           <p>light spot</p>
-          <!-- script -->
-          <script>
-            let can2 = function (p) {
-              let walkers = [];
-              let i;
-              p.setup = function () {
-                p.createCanvas(300, 300);
-                p.background("#529A86");
-              };
-              p.draw = function () {
-                p.translate(10, 10);
-                let pos = p.createVector(p.width / 2, p.height / 2);
-                let mouse = p5.Vector.random2D();
-
-                mouse.mult(100);
-                let v = p5.Vector.sub(pos, mouse);
-
-                // let r = p.random(0,100)
-
-                // if (r < 80) {
-                //   p.stroke(255 , 50);
-                // }else{
-                //   p.stroke("#ec6778");
-                // }
-                p.stroke(255, 10);
-
-                p.strokeWeight(4);
-                p.line(0, 0, v.x, v.y);
-              };
-            };
-            new p5(can2, window.document.getElementById("canvas_block_3"));
-          </script>
-          <!-- style -->
         </div>
-        <!---***** end canvas 3  *******-->
+
+
+
+
+       <!---*****  canvas 4  *******-->
+      <div id="canvas_block_4" class="canvas_block">
+        <h1>Canvas 4</h1>
+        <p>gravity and pull force on click</p>
+        <!-- script -->
+        <script>
+          
+        </script>
+        <!-- style -->
+      </div>
+      <!---***** end canvas 4  *******-->
+
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
