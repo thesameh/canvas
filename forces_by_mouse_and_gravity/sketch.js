@@ -22,7 +22,8 @@ function draw() {
       let w2 = p5.Vector.sub(wind , walker2.pos).limit(0.2);
 
       // outwards force
-      // w1.mult(-1)
+      w1.mult(-1)
+      w2.mult(-1)
 
       walker.apply_force(w1);
       walker2.apply_force(w2);
