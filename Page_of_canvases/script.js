@@ -1,3 +1,12 @@
+// colors
+
+// pink #ec6778 rgb(236, 103, 120)
+// blue green #529A86 rgb(82, 154, 134)
+// page #FDD2A8  rgb(253, 210, 168)
+// orange #c94c22 
+// red #ab1616 
+
+
 
 //! ******** canvas 1 *******//
 let sketch = function (p) {
