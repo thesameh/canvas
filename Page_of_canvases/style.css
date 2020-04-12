@@ -7,13 +7,22 @@ body{
     align-items: flex-start;
     justify-content: space-around;
 }
+
 .canvas_block{
     display: inline-block;
     max-width: 50%;
     margin-bottom: 30px;
 }
+.canvas_block h1{
+    display: block;
+    max-width: 100%;
+}
+.canvas_block p {
+    display: block;
+    height: 40px;
+    max-width: 300px;
+}
 
 .canvas_block canvas{
-
     max-width: 100%;
 }
